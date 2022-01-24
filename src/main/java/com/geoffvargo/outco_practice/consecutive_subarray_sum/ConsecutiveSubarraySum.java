@@ -6,12 +6,12 @@ package com.geoffvargo.outco_practice.consecutive_subarray_sum;
  *      Input: Array of integers, target value
  *      Output: Boolean
  * </pre>
- *   <h3>Example:</h3>
+ * <h3>Example:</h3>
  * <pre>
  *      Input: [6,12,1,7,5,2,3], 14     =>    Output: true (7+5+2)
  *      Input: [8,3,7,9,10,1,13], 50    =>    Output: false
  * </pre>
- *   <h3>Constraints:</h3>
+ * <h3>Constraints:</h3>
  * <pre>
  *      Time Complexity: O(N)
  *      Auxiliary Space Complexity: O(1)
@@ -20,5 +20,9 @@ package com.geoffvargo.outco_practice.consecutive_subarray_sum;
  */
 public class ConsecutiveSubarraySum {
 	public static void main(String[] args) {
+	}
+	
+	public static boolean consecSubarraySum(int[] arr, int target) {
+		return false;
 	}
 }
