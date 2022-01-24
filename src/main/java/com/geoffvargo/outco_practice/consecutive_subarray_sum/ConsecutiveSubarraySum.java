@@ -36,22 +36,36 @@ public class ConsecutiveSubarraySum {
 		System.out.println(ans);
 	}
 	
+	/**
+	 * Efficient Approach: There is an idea if all the elements of the array are positive. If a subarray has sum greater than the given sum then there is no possibility that adding elements to the current subarray the sum will be x (given sum). Idea is to use a similar approach to a sliding window. Start with an empty subarray, add elements to the subarray until the sum is less than x. If the sum is greater than x, remove elements from the start of the current subarray.
+	 * Algorithm:
+	 * <p>
+	 * Create three variables, l=0, sum = 0
+	 * Traverse the array from start to end.
+	 * Update the variable sum by adding current element, sum = sum + array[i]
+	 * If the sum is greater than the given sum, update the variable sum as sum = sum – array[l], and update l as, l++.
+	 * If the sum is equal to given sum, print the subarray and break the loop.
+	 */
 	public static boolean consecSubarraySum(int[] arr, int target) {
-		int currSum = arr[0];
-		int start   = 0;
+		if (target == 0 && arr.length > 0) {
+			return false;
+		}
 		
-		for (int i = 1; i < arr.length && currSum != target; ++i) {
-			currSum += arr[i];
-			if (currSum > target) {
-				while (currSum > target) {
-					currSum -= arr[start];
-					start++;
-				}
+		int left = 0;
+		int sum  = arr[0];
+		
+		int i;
+		for (i = 1; i < arr.length; i++) {
+			while (sum > target) {
+				sum -= arr[left];
+				left++;
 			}
-			if (currSum == target) {
+			if (sum == target) {
 				return true;
 			}
+			sum += arr[i];
 		}
+		
 		return false;
 	}
 }
