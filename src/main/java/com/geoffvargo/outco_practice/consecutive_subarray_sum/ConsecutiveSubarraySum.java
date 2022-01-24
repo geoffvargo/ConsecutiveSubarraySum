@@ -40,7 +40,7 @@ public class ConsecutiveSubarraySum {
 		int currSum = arr[0];
 		int start   = 0;
 		
-		for (int i = 1; i < arr.length; ++i) {
+		for (int i = 1; i < arr.length && currSum != target; ++i) {
 			currSum += arr[i];
 			if (currSum > target) {
 				while (currSum > target) {
@@ -48,7 +48,10 @@ public class ConsecutiveSubarraySum {
 					start++;
 				}
 			}
+			if (currSum == target) {
+				return true;
+			}
 		}
-		return currSum == target;
+		return false;
 	}
 }
