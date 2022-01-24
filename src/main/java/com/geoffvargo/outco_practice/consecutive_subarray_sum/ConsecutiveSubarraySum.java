@@ -1,5 +1,7 @@
 package com.geoffvargo.outco_practice.consecutive_subarray_sum;
 
+import java.util.*;
+
 /**
  * Given an array of positive integers and a target value, return true if there is a subarray of consecutive elements that sum up to this target value.
  * <pre>
@@ -20,6 +22,18 @@ package com.geoffvargo.outco_practice.consecutive_subarray_sum;
  */
 public class ConsecutiveSubarraySum {
 	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter a positive integer sum: ");
+		int target = input.nextInt();
+		
+		System.out.println("Enter a bunch of positive integers: ");
+		String str = input.nextLine();
+		
+		int[]   arr = Arrays.stream(str.split("\\D+")).mapToInt(Integer::parseInt).toArray();
+		boolean ans = consecSubarraySum(arr, target);
+		
+		System.out.println(ans);
 	}
 	
 	public static boolean consecSubarraySum(int[] arr, int target) {
